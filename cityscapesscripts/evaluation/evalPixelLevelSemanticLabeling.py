@@ -69,18 +69,7 @@ if CSUPPORT:
 def getPrediction( args, groundTruthFile ):
     # determine the prediction path, if the method is first called
     if not args.predictionPath:
-        rootPath = None
-        if 'CITYSCAPES_RESULTS' in os.environ:
-            rootPath = os.environ['CITYSCAPES_RESULTS']
-        elif 'CITYSCAPES_DATASET' in os.environ:
-            rootPath = os.path.join( os.environ['CITYSCAPES_DATASET'] , "results" )
-        else:
-            rootPath = os.path.join(os.path.dirname(os.path.realpath(__file__)),'..','..','results')
-
-        if not os.path.isdir(rootPath):
-            printError("Could not find a result root folder. Please read the instructions of this method.")
-
-        args.predictionPath = rootPath
+        args.predictionPath = "/Users/ht/Documents/dataset/cityscapes/refinenet_cityscapes_val_result_png_labelid"
 
     # walk the prediction path, if not happened yet
     if not args.predictionWalk:
@@ -655,7 +644,8 @@ def main(argv):
     # however the no-argument way is prefered
     elif len(argv) == 0:
         # use the ground truth search string specified above
-        groundTruthImgList = glob.glob(args.groundTruthSearch)
+
+        groundTruthImgList = glob.glob("/Users/ht/Documents/dataset/cityscapes/orgin_cityscapes/val_anno_labelid/*")
         if not groundTruthImgList:
             printError("Cannot find any ground truth images to use for evaluation. Searched for: {}".format(args.groundTruthSearch))
         # get the corresponding prediction for each ground truth imag
