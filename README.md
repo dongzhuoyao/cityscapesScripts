@@ -1,7 +1,7 @@
 
 修改preparation/createTrainIdLabelImgs.py中的变量cityscapesPath = "/cdata/xxoo/dataset/cityscapes"
 
-####1,python preparation/createTrainIdLabelImgs.py
+#### 1,python preparation/createTrainIdLabelImgs.py
 
 多边形转换成具体的label
 
